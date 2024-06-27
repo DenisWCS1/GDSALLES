@@ -1,4 +1,7 @@
 package GDSalles.example.GDSalles.repository;
 
-public class UserRepository {
+import GDSalles.example.GDSalles.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
 }

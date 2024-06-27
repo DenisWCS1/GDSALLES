@@ -1,4 +1,7 @@
 package GDSalles.example.GDSalles.repository;
 
-public class RoomRepository {
+import GDSalles.example.GDSalles.entity.Room;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RoomRepository extends JpaRepository<Room, Long>{
 }
