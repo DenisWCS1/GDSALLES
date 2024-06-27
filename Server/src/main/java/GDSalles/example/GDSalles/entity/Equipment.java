@@ -25,6 +25,13 @@ public class Equipment {
 
     @Column(name = "name", length = 100, nullable = false)
     private String name;
+
+    @Column(name = "quantity", nullable = false)
+    private int quantity;
+
+    @Enumerated(EnumType.STRING)
+    private EquipmentType type;
+
     //https://www.baeldung.com/jpa-many-to-many
     @ManyToMany(mappedBy = "equipment")
     Set<Room> rooms;
@@ -35,12 +42,14 @@ public class Equipment {
         this.createdAt = LocalDateTime.now();
         this.modifiedAt = LocalDateTime.now();
     }
-
     //https://www.baeldung.com/jpa-entity-lifecycle-events
     @PreUpdate
     protected void onUpdate() {
         this.modifiedAt = LocalDateTime.now();
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
 }
