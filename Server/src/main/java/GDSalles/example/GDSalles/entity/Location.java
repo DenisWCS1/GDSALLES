@@ -37,6 +37,7 @@ public class Location {
     @PrePersist
     protected void onCreate(){
         this.createdAt = LocalDateTime.now();
+        this.modifiedAt = LocalDateTime.now();
     }
     //https://www.baeldung.com/jpa-entity-lifecycle-events
     @PreUpdate

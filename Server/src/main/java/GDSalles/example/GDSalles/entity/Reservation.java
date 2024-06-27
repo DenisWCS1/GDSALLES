@@ -33,15 +33,16 @@ public class Reservation {
     private User user;
 
     @Column(name = "start_date", nullable = false, updatable = true)
-    private LocalDateTime startdate;
+    private LocalDateTime startDate;
     @Column(name = "end_date", nullable = false, updatable = true)
-    private LocalDateTime enddate;
+    private LocalDateTime endDate;
 
 
     //https://www.baeldung.com/jpa-entity-lifecycle-events
      @PrePersist
     protected void onCreate(){
          this.createdAt = LocalDateTime.now();
+         this.modifiedAt = LocalDateTime.now();
      }
      //https://www.baeldung.com/jpa-entity-lifecycle-events
     @PreUpdate

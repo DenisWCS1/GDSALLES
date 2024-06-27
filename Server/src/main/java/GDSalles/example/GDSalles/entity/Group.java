@@ -25,13 +25,14 @@ public class Group {
     @Column(name = "name", length = 100, nullable = false)
     private String name;
     //https://www.baeldung.com/jpa-many-to-many
-    @ManyToMany(mappedBy = "Group")
+    @ManyToMany(mappedBy = "groups")
     private Set<Room> rooms;
 
     //https://www.baeldung.com/jpa-entity-lifecycle-events
     @PrePersist
     protected void onCreate(){
         this.createdAt = LocalDateTime.now();
+        this.modifiedAt = LocalDateTime.now();
     }
     //https://www.baeldung.com/jpa-entity-lifecycle-events
     @PreUpdate

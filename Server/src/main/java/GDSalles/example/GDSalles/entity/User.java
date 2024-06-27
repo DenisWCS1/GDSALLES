@@ -30,6 +30,10 @@ public class User {
     @Column(name="username", length = 100, nullable = false)
     private String username;
     private String email;
+    @Column(name="password", length = 100, nullable = false)
+    @ToString.Exclude
+    private String password;
+
 
     //https://www.baeldung.com/jpa-many-to-many
     @ManyToMany
@@ -40,6 +44,7 @@ public class User {
     @PrePersist
     protected void onCreate(){
         this.createdAt = LocalDateTime.now();
+        this.modifiedAt = LocalDateTime.now();
     }
     //https://www.baeldung.com/jpa-entity-lifecycle-events
     @PreUpdate
